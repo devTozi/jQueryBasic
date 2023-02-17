@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="js/jquery-3.6.3.min.js"></script>
+
+</head>
+<body>
+    
+    <button id="btn">이벤트 등록</button>
+
+    <input type="text" id="tag">
+
+    <select id="sel">
+        <option>1</option>
+        <option>2</option>
+    </select>
+
+    <div style="background-color: red; width: 100px; height: 100px;" id="mos">
+        마우스 이벤트
+    </div>
+
+    <script>
+        // 클릭
+        $("#btn").click(() => {
+            console.log("click");
+        });
+        // 키 입력
+        $("#tag").keydown(() => {
+            console.log("zz");
+        });
+        // 체인지
+        $("#sel").change(() => {
+            console.log("change");
+        })
+        // 마우스
+        $("#mos").mouseenter(() => {
+            $("#mos").css("backgroundColor", "green");
+        })
+        $("#mos").mouseleave(() => {
+            $("#mos").css("backgroundColor", "red");
+        })
+
+    </script>
+
+    <hr/>
+
+    <h3>이벤트 위임 방식 on()</h3>
+
+    <div id="box">
+
+    </div>
+
+    <script>
+        
+        setTimeout(() => {
+            var str = "";
+            str += "<a href='#'>태그</a><br/>";
+            str += "<a href='#'>태그</a><br/>";
+            str += "<a href='#'>태그</a><br/>";
+            $("#box").html(str);
+        }, 2000); // 2초 뒤 태그 생성
+
+        // 사용 불가
+        // $("a[href='#']").click(() => {
+        //     console.log("hi");
+        // });
+
+        // (이벤트종류, 위임시킬선택자, 핸들러)
+        $("#box").on("click", "a", () => {
+            event.preventDefault();
+            console.log("hi");
+        });
+
+    </script>
+
+</body>
+</html>

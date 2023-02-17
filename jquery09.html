@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="js/jquery-3.6.3.min.js"></script>
+
+</head>
+<body>
+    
+    <button id="btn">ajax</button>
+
+    <script>
+        $("#btn").click(() => {
+            $.ajax({
+                url : "http://localhost:8383/getAjax", // 요청 주소
+                type : "post", // 요청 타입
+                data : JSON.stringify({id : "bbb123", name : "이순신"}), // 보낼 데이터
+                contentType : "application/json", // 보내는 데이터에 대한 타입(필수)
+                dataType : "json", // json, xml, text, html 등등 받는 데이터에 대한 타입(필수X, 기본은 json)
+                success : function(result) { // 성공 시 콜백
+                    console.log(result);
+                },
+                error : function(err){ // 실패 시 콜백
+                    console.log(err);
+                }
+            })
+        })
+
+    </script>
+
+    <hr/>
+
+    <input type="text" name="topic" id="data">
+    <button id="getBtn">get방식</button>
+
+    <script>
+        // 버튼을 클릭하면 get 방식으로 ajax처리를 한다.
+        // getAjax2/토픽값 형태로 전송
+        $("#getBtn").click(() => {
+
+            var data = $("#data").val();
+            $.ajax({
+                url : "http://localhost:8383/getAjax2/"+data,
+                type : "get",
+                success : (res) => {
+                    console.log(res);
+                },
+                error : (err) => {
+                    console.log(err);
+                }
+            });
+        })
+
+
+    </script>
+
+</body>
+</html>

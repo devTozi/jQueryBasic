@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- jQuery -->
+    <script src="js/jquery-3.6.3.min.js"></script>
+
+</head>
+<body>
+    
+    <input type="text" id="melon" value="홍길동">
+    <input type="text" class="apple">
+
+    <script>
+        // $("선택자") 형태로 요소를 얻으면, 제이쿼리 시작객체를 반환해준다.
+        // $("선택자").제이쿼리함수()를 이용해서 태그를 제어한다.
+        // 반환 요소를 배열로 주지만 하나의 원소만(0번째) 사용 가능 (id값은 고유하게 사용해야 됨)
+        console.log($("#melon"));
+        console.log($("#melon").val());
+        console.log($("#melon")[0].value);
+        
+        // var result = $("#melon").val();
+        // console.log(result);
+
+        // 값의 변경 - val함수에 매개변수로 전달
+        $("#melon").val("변경할값");
+        var result = $("#melon").val();
+        console.log(result);
+
+        $(".apple").val("변경할값2");
+        console.log($(".apple").val());
+
+        
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="js/jquery-3.6.3.min.js"></script>
+
+</head>
+<body>
+    
+    <div class="test1">hi</div>
+    <div class="test2">bye</div>
+
+    <script>
+        // js
+        var a = document.querySelector(".test1").innerHTML;
+        console.log(a);
+        document.querySelector(".test1").innerHTML = "<a href='#'>zzz</a>"
+
+        // jquery
+        $(".test1").html("<a href='#'>zzz</a>"); // 태그로
+        $(".test1").html(""); // 공백으로
+        $(".test1").html("ㅎㅇ"); 
+        
+        // 값을 얻음
+        var result = $(".test1").html();
+        console.log(result);
+
+        // text() - 순수한 텍스트로 인식
+        $(".test2").text("<a href='#'>zzz</a>"); // 텍스트로
+
+    </script>
+
+</body>
+</html>
